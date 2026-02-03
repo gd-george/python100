@@ -69,7 +69,7 @@ while is_one:
     elif choice == "off":
         is_one=False
 
-    else:
+    elif choice in MENU:
         if check_r(choice):
              total_money = ask_money()
              check_money(choice,total_money)
@@ -77,6 +77,8 @@ while is_one:
             print("Sorry not enough resources")
             for i in resources:
                 print(f"{i}: {resources[i]}")
+    else:
+        print("Invalid Input")
 
 
 
