@@ -35,16 +35,16 @@ stash=0
 def check_r(choice):
     for i in MENU[choice]["ingredients"]:
         if MENU[choice]["ingredients"][i] >= resources[i]:
-            return False
+            return False, print(f"Sorry there is not enough {i}")
         else:
             resources[i] -= MENU[choice]["ingredients"][i]
-    return True
+    return True, 2
 
 
 def check_money(choice,total_money):
     global stash
     if MENU[choice]["cost"] < total_money:
-        stash=MENU[choice]["cost"]
+        stash+=MENU[choice]["cost"]
         return print(f"Enjoy you {choice} 🍵")
     else:
         return print(f"Sorry not coins. Money refunded")
@@ -70,7 +70,8 @@ while is_one:
         is_one=False
 
     elif choice in MENU:
-        if check_r(choice):
+        
+        if check_r(choice)[0]:
              total_money = ask_money()
              check_money(choice,total_money)
         else:
