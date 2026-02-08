@@ -39,13 +39,13 @@ tim.pendown()
 #     tim.forward(25)
 #     tim.setheading(random_angle)
 # # angle = 0
-
+tim.penup()
 for i in range(10):
     for j in range(10):
         random_color = random.choice(colors_list)
         tim.pencolor(random_color)
         tim.dot(20)
-        tim.penup()
+        
         tim.forward(50)
     tim.backward(500)
     tim.left(90)
